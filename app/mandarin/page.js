@@ -21,6 +21,13 @@ export default function MandarinSystem() {
   const activeWords = currentLesson ? hsk1.slice((currentLesson - 1) * wordsPerLesson, currentLesson * wordsPerLesson) : [];
   const currentCard = activeWords[currentIndex];
 
+    // --- PLAY SOUND ---
+  const playSound = (text) => {
+  const utterance = new SpeechSynthesisUtterance(text);
+  utterance.lang = 'zh-CN'; // Ensures it uses the Chinese voice
+  window.speechSynthesis.speak(utterance);
+  }; 
+
   // --- AUDIO & SPEECH LOGIC ---
   const speak = (text) => {
     if (typeof window !== "undefined") {
@@ -94,7 +101,7 @@ export default function MandarinSystem() {
           
           <div className={styles.cardFront}>
             <h1 className={styles.hanzi} style={{ fontSize: currentCard.hanzi.length > 5 ? '2.5rem' : '5.5rem' }}>{currentCard.hanzi}</h1>
-            <p className={styles.hintText}>Tap to flip 👆</p>
+            <p className={styles.hintText}>Tap to flipppppppppppp 👆</p>
           </div>
 
           <div className={styles.cardBack}>
