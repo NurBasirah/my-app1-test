@@ -37,7 +37,7 @@ export default function Home() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <Link
-                href="/mandarin"
+                href="/mandarin/category"
                 className="flex h-14 items-center justify-center rounded-full bg-red-600 px-10 text-lg font-bold text-white transition-all hover:bg-red-700 hover:shadow-lg shadow-red-500/30"
               >
                 Start Free Trial ✨

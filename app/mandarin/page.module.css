@@ -111,14 +111,18 @@
 /* 🟢 Grading Buttons 🟢 */
 /* Responsive adjustment for the container */
 .gradingContainer {
-  margin-top: 30px;
   display: flex;
-  flex-wrap: wrap;       /* Allows buttons to stack if the screen is tiny */
   gap: 15px;
+  margin-top: 30px;
   width: 100%;
-  max-width: 600px;      /* Keeps the buttons grouped together */
+  max-width: 600px;
   justify-content: center;
-  padding: 0 20px;       /* Side padding to prevent touching screen edges */
+  flex-wrap: wrap;
+}
+
+.gradingContainer .gotItBtn {
+  flex: 1;
+  min-width: 140px;
 }
 
 /* Update the existing .gotItBtn and .forgotBtn styles */
@@ -245,27 +249,19 @@
 /* Celebration Card: Responsive & Adaptive */
 .celebrationCard {
   background: white;
-  /* Use viewport-based width for mobile, capped for desktop */
-  width: 90%; 
-  max-width: 400px; 
-  
-  /* Use clamp for padding so it's smaller on mobile */
-  padding: clamp(20px, 5vh, 40px); 
-  
+  width: 90vw;
+  max-width: 500px;
+  padding: clamp(20px, 5vh, 40px);
   border-radius: 40px;
   border: 4px solid #51cf66;
   text-align: center;
-  box-shadow: 0 10px 0 #37b24d; /* Slightly smaller shadow for better mobile fit */
-  
+  box-shadow: 0 10px 0 #37b24d;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  
-  /* Prevent overflow on very short screens */
-  max-height: 90vh; 
-  overflow-y: auto; 
-  
+  max-height: 85vh;
+  overflow-y: auto;
   animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
@@ -276,16 +272,16 @@
 }
 
 /* Make sure buttons fit inside the card on mobile */
-.celebrationCard .gotItBtn {
-  width: 100%;
-  max-width: 250px;
-  margin-top: 15px;
-  padding: 12px 20px; /* Slimmer padding for mobile */
+.celebrationCard .gotItBtn,
+.celebrationCard .backBtn {
+  width: 80%;
+  max-width: 260px;
+  font-size: clamp(0.9rem, 4vw, 1.1rem);
 }
 
 /* Sticker image: Make it scale with the screen */
 .celebrationCard img {
-  width: clamp(120px, 25vh, 180px); /* Scales based on screen height */
+  width: min(180px, 25vw);  /* 25% of viewport width, max 180px */
   height: auto;
   object-fit: contain;
   margin-bottom: 20px;
@@ -299,11 +295,12 @@
 
 /* 1. The Perspective Wrapper */
 .flashcardContainer {
-  perspective: 1000px; /* Essential for 3D look */
-  width: 90%;
-  max-width: 450px;
-  height: 60vh;
+  perspective: 1000px;
+  width: 90vw;          /* 90% of viewport width */
+  max-width: 550px;     /* but not wider than 550px */
+  height: 55vh;         /* 55% of viewport height */
   max-height: 500px;
+  min-height: 320px;    /* never too small */
   cursor: pointer;
   margin-bottom: 20px;
 }
@@ -418,3 +415,4 @@
   font-size: 0.9rem;
   color: #555;
 }
+
